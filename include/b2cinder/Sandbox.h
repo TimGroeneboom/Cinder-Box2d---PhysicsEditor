@@ -34,7 +34,7 @@ namespace cinder{
 			void clear();
 			
 			// have a look at what's in the physics system (scaled up to screen space)
-			void debugDraw( bool drawBodies=true, bool drawContacts=true );
+			void debugDraw( bool drawBodies=true, bool drawContacts=true, bool drawJoints=true );
 			// draw all PhysicsElements
 			void draw();
 			

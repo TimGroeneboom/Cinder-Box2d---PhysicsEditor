@@ -116,7 +116,7 @@ namespace cinder
 
 		}
 
-		void Sandbox::debugDraw( bool drawBodies, bool drawContacts )
+		void Sandbox::debugDraw( bool drawBodies, bool drawContacts, bool drawJoints )
 		{
 			// should utilize an extension of b2DebugDraw (will soon)
 			//
@@ -204,24 +204,27 @@ namespace cinder
 				glEnd();
 			}
 
-			b2Joint* joints = mWorld->GetJointList();
-
-			gl::color( ColorA( 0.0f, 1.0f, 0.0f, 0.8f ) );
-			glPointSize(6.0f);
-
-			glBegin(GL_POINTS);
-
-			while( joints != NULL )
+			if( drawJoints )
 			{
-				Vec2f p1 = Conversions::toScreen( joints->GetAnchorA() );
-				Vec2f p2 = Conversions::toScreen( joints->GetAnchorB() );
-				gl::vertex( p1 );
-				gl::vertex( p2 );
+				b2Joint* joints = mWorld->GetJointList();
 
-				joints = joints->GetNext();
+				gl::color( ColorA( 0.0f, 1.0f, 0.0f, 0.8f ) );
+				glPointSize(6.0f);
+
+				glBegin(GL_POINTS);
+
+				while( joints != NULL )
+				{
+					Vec2f p1 = Conversions::toScreen( joints->GetAnchorA() );
+					Vec2f p2 = Conversions::toScreen( joints->GetAnchorB() );
+					gl::vertex( p1 );
+					gl::vertex( p2 );
+
+					joints = joints->GetNext();
+				}
+
+				glEnd();
 			}
-
-			glEnd();
 		}
 
 		void Sandbox::draw()
