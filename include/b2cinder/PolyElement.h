@@ -25,7 +25,7 @@ namespace cinder{
 		void moveX( float x );
 		void rotateTo( float angle );
 	private:
-		b2PolygonShape mShape;
+		b2PolygonShape	mShape;
 		ci::gl::Texture mTexture;
 	};
 }

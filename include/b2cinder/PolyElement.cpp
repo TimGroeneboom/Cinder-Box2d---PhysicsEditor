@@ -69,9 +69,15 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 		}
 	}
 
-	// get the associated texture
-	mTexture = gl::Texture( loadImage( "../" + body.name + ".png" ) );
-
+	// try to get the associated texture
+	std::string filePath = body.name + ".png";
+	try{
+		mTexture = gl::Texture( loadImage( filePath ) );
+	}catch(const std::exception & e){
+		app::console() << "Error loading : " << filePath << std::endl;
+		app::console() << e.what() << std::endl;
+	}
+	
 	mBody = mWorldPtr->CreateBody( &mBodyDef );
 
 	// add all fixture defs
@@ -98,16 +104,19 @@ void PolyElement::draw()
 	Vec2f pos = Conversions::toScreen( mBody->GetPosition() );
 	float t = Conversions::radiansToDegrees( mBody->GetAngle() );
 
-	gl::color( Color::white() );
+	if( mTexture ) {
+		glPushMatrix();
 
-	glPushMatrix();
-	gl::translate( pos );
-	gl::rotate( t );
-	gl::translate( (float)(-mTexture.getWidth()/2), (float)(-mTexture.getHeight()/2) );
+		gl::color( Color::white() );
 
-	gl::draw( mTexture );
+		gl::translate( pos );
+		gl::rotate( t );
+		gl::translate( (float)(-mTexture.getWidth()*0.5f), (float)(-mTexture.getHeight()*0.5f) );
 
-	glPopMatrix();
+		gl::draw( mTexture );
+
+		glPopMatrix();
+	}
 }
 
 void PolyElement::moveTo( Vec2f pos ){

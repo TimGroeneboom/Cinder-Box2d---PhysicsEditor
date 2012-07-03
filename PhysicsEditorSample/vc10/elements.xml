@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- created with http://www.physicseditor.de -->
+<bodydef version="1.0">
+    <bodies numBodies="4">
+
+        <body name="Mario1" dynamic="true" numFixtures="1">
+
+            <fixture
+                density="2"
+                friction="0"
+                restitution="0"
+                filter_categoryBits="1"
+                filter_groupIndex="0"
+                filter_maskBits="65535"
+                isSensor="false"
+                type="POLYGON"
+                numPolygons="2"
+                >
+
+
+                <polygon numVertexes="6">
+
+                    <vertex x="-25.0000" y="-19.0000" />
+
+                    <vertex x="-17.0000" y="-32.0000" />
+
+                    <vertex x="13.0000" y="-32.0000" />
+
+                    <vertex x="24.0000" y="-27.0000" />
+
+                    <vertex x="3.0000" y="26.0000" />
+
+                    <vertex x="-26.0000" y="32.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="4">
+
+                    <vertex x="3.0000" y="32.0000" />
+
+                    <vertex x="3.0000" y="26.0000" />
+
+                    <vertex x="24.0000" y="-27.0000" />
+
+                    <vertex x="26.0000" y="32.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="Mario2" dynamic="true" numFixtures="1">
+
+            <fixture
+                density="2"
+                friction="0"
+                restitution="0"
+                filter_categoryBits="1"
+                filter_groupIndex="0"
+                filter_maskBits="65535"
+                isSensor="false"
+                type="POLYGON"
+                numPolygons="3"
+                >
+
+
+                <polygon numVertexes="5">
+
+                    <vertex x="-26.0000" y="24.0000" />
+
+                    <vertex x="-13.0000" y="-7.0000" />
+
+                    <vertex x="13.0000" y="-24.0000" />
+
+                    <vertex x="24.0000" y="-14.0000" />
+
+                    <vertex x="23.0000" y="24.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="-13.0000" y="-7.0000" />
+
+                    <vertex x="-26.0000" y="24.0000" />
+
+                    <vertex x="-28.0000" y="-5.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="3">
+
+                    <vertex x="13.0000" y="-24.0000" />
+
+                    <vertex x="-13.0000" y="-7.0000" />
+
+                    <vertex x="-8.0000" y="-21.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="Mario3" dynamic="true" numFixtures="1">
+
+            <fixture
+                density="2"
+                friction="0"
+                restitution="0"
+                filter_categoryBits="1"
+                filter_groupIndex="0"
+                filter_maskBits="65535"
+                isSensor="false"
+                type="POLYGON"
+                numPolygons="2"
+                >
+
+
+                <polygon numVertexes="7">
+
+                    <vertex x="30.0000" y="-5.0000" />
+
+                    <vertex x="21.0000" y="2.0000" />
+
+                    <vertex x="-21.0000" y="2.0000" />
+
+                    <vertex x="-30.0000" y="-5.0000" />
+
+                    <vertex x="-30.0000" y="-23.0000" />
+
+                    <vertex x="13.0000" y="-28.0000" />
+
+                    <vertex x="30.0000" y="-23.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="6">
+
+                    <vertex x="-21.0000" y="2.0000" />
+
+                    <vertex x="21.0000" y="2.0000" />
+
+                    <vertex x="28.0000" y="9.0000" />
+
+                    <vertex x="25.0000" y="28.0000" />
+
+                    <vertex x="-25.0000" y="28.0000" />
+
+                    <vertex x="-29.0000" y="9.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+        <body name="Mario4" dynamic="true" numFixtures="1">
+
+            <fixture
+                density="2"
+                friction="0"
+                restitution="0"
+                filter_categoryBits="1"
+                filter_groupIndex="0"
+                filter_maskBits="65535"
+                isSensor="false"
+                type="POLYGON"
+                numPolygons="2"
+                >
+
+
+                <polygon numVertexes="5">
+
+                    <vertex x="7.0000" y="32.0000" />
+
+                    <vertex x="-23.0000" y="32.0000" />
+
+                    <vertex x="10.0000" y="1.0000" />
+
+                    <vertex x="23.0000" y="1.0000" />
+
+                    <vertex x="28.0000" y="23.0000" />
+
+                </polygon>
+
+                <polygon numVertexes="6">
+
+                    <vertex x="10.0000" y="1.0000" />
+
+                    <vertex x="-23.0000" y="32.0000" />
+
+                    <vertex x="-26.0000" y="-30.0000" />
+
+                    <vertex x="7.0000" y="-32.0000" />
+
+                    <vertex x="15.0000" y="-31.0000" />
+
+                    <vertex x="22.0000" y="-15.0000" />
+
+                </polygon>
+
+
+            </fixture>
+
+        </body>
+
+    </bodies>
+    <metadata>
+        <format>1</format>
+        <ptm_ratio></ptm_ratio>
+    </metadata>
+</bodydef>

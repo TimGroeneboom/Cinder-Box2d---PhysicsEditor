@@ -10,6 +10,8 @@
 namespace cinder{
 	namespace box2d {
 
+	typedef boost::shared_ptr<class Elements> ElementsRef;
+
 	class Elements {
 	public:
 		struct Polygon{
@@ -37,16 +39,18 @@ namespace cinder{
 			std::vector<Fixture> fixtures;
 		};
 	public:
-		static Elements* get();
-
+		Elements();
 		~Elements();
 
 		void setup(std::string file);
-		const Body& getElement(std::string id);
+
+		inline const Body& getElement(std::string id){ return mElements[id]; };
+		inline const std::map<std::string, Elements::Body> &getElements(){ return mElements; };
 	private:
-		Elements();
-		std::map<std::string, Body> mElements;
+		std::map<std::string, Elements::Body> mElements;
 	};
+
+	typedef std::map<std::string, Elements::Body> ElementsList;
 }
 
 }

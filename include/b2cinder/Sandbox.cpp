@@ -236,6 +236,7 @@ namespace cinder
 				PhysicsElement* p = (PhysicsElement*)bodies->GetUserData();
 				if( p != NULL)
 					p->draw();
+
 				bodies = bodies->GetNext();
 			}
 		}
@@ -273,7 +274,7 @@ namespace cinder
 			mWorld = new b2World( mGravity );
 
 			if( useScreenBounds ){
-				createBoundaries( Rectf( 0, -1080, 9600, 1080 ) );
+				createBoundaries( app::getWindowBounds() );
 			}
 
 			// Create an empty body for use with a b2MouseJoint
