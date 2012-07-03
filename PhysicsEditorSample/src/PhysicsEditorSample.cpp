@@ -48,6 +48,7 @@ void PhysicsEditorSample::setup()
 
 void PhysicsEditorSample::mouseDown( MouseEvent event )
 {
+	mPolyElements.push_back( PolyElementRef( new PolyElement(	mSandbox.getWorld(), event.getPos(), mElements->getElement("Mario1") ) ) );
 }
 
 void PhysicsEditorSample::update()

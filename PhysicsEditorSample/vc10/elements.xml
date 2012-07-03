@@ -6,9 +6,9 @@
         <body name="Mario1" dynamic="true" numFixtures="1">
 
             <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="1"
+                friction="0.5"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -54,9 +54,9 @@
         <body name="Mario2" dynamic="true" numFixtures="1">
 
             <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="1"
+                friction="0.5"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -108,9 +108,9 @@
         <body name="Mario3" dynamic="true" numFixtures="1">
 
             <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="1"
+                friction="0.5"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -162,13 +162,13 @@
         <body name="Mario4" dynamic="true" numFixtures="1">
 
             <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="1"
+                friction="0.5"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
-                isSensor="false"
+                isSensor="true"
                 type="POLYGON"
                 numPolygons="2"
                 >

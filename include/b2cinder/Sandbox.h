@@ -27,7 +27,7 @@ namespace cinder{
 			~Sandbox();
 
 			// run the physics timestep
-			void update();
+			virtual void update();
 			
 			// check our bodies to see whether they should be removed
 			// from the simulation and removes them
@@ -81,7 +81,7 @@ namespace cinder{
 			bool mouseUp( app::MouseEvent event );
 			bool mouseDrag( app::MouseEvent event );
 			
-		private:
+		protected:
 			bool mDoSleep;
 			
 			CallbackId mMouseDownId, mMouseUpId, mMouseDragId;

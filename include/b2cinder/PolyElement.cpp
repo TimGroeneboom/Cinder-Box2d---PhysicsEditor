@@ -45,6 +45,7 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 			b2Fixture.restitution = fixture.restitution;
 			b2Fixture.friction = fixture.friction;
 			b2Fixture.density = fixture.density;
+			b2Fixture.isSensor = fixture.isSensor;
 
 			mFixtureDefs.push_back( b2Fixture );
 		}
@@ -64,6 +65,7 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 			b2Fixture.restitution = fixture.restitution;
 			b2Fixture.friction = fixture.friction;
 			b2Fixture.density = fixture.density;
+			b2Fixture.isSensor = fixture.isSensor;
 
 			mFixtureDefs.push_back(	b2Fixture );
 		}
@@ -119,28 +121,3 @@ void PolyElement::draw()
 	}
 }
 
-void PolyElement::moveTo( Vec2f pos ){
-	b2Vec2 newPos = Conversions::toPhysics( pos );
-	b2Vec2 dis	= newPos - mBody->GetPosition();
-	dis			*= 30.0f;
-
-	mBody->SetLinearVelocity( dis );
-	mStopVelocity = true;
-}
-
-void PolyElement::moveX( float x ){
-	float dis	=	Conversions::toPhysics(x) - mBody->GetPosition().x;
-	dis			*= 30.0f;
-
-	mBody->SetLinearVelocity( b2Vec2( dis, mBody->GetLinearVelocity().y ) );
-	mStopXVelocity = true;
-}
-
-void PolyElement::rotateTo( float angle ){
-	float totalRotation = angle - mBody->GetAngle();
-	while ( totalRotation < -180.0f * DEGTORAD ) totalRotation += 360.0f * DEGTORAD;
-	while ( totalRotation >  180.0f * DEGTORAD ) totalRotation -= 360.0f * DEGTORAD;
-
-	mBody->SetAngularVelocity( totalRotation * 30.0f );
-	mStopAngularVelocity = true;
-}

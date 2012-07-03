@@ -40,29 +40,6 @@ namespace cinder
 		{	
 			mWorld->Step(mTimeStep, mVelocityIterations, mPositionIterations);
 			mWorld->ClearForces();
-
-			b2Body* node = mWorld->GetBodyList();
-			while (node)
-			{
-				b2Body* b = node;
-				node = node->GetNext();
-
-				PhysicsElement* p = (PhysicsElement*)b->GetUserData();
-				if( p && p->getStopVelocity() )
-				{
-					p->setStopVelocity();
-				}
-
-				if( p && p->getStopAngularVelocity() )
-				{
-					p->setStopAngularVelocity();
-				}
-
-				if( p && p->getStopXVelocity() )
-				{
-					p->setStopXVelocity();
-				}
-			}
 		}
 
 		void Sandbox::setGravity( Vec2f gravity )

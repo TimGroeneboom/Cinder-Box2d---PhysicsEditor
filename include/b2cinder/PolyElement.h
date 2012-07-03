@@ -19,12 +19,7 @@ namespace cinder{
 		PolyElement( b2World * world, ci::Vec2f pos, Elements::Body body );
 
 		virtual void draw();
-		void destroyBody(){ delete this; }
-			
-		void moveTo( ci::Vec2f pos );
-		void moveX( float x );
-		void rotateTo( float angle );
-	private:
+	protected:
 		b2PolygonShape	mShape;
 		ci::gl::Texture mTexture;
 	};

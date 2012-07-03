@@ -28,9 +28,10 @@ namespace cinder{
 			uint16 maskBits;
 			uint16 catagoryBits;
 
-			float density;
-			float restitution;
-			float friction;
+			float	density;
+			float	restitution;
+			float	friction;
+			bool	isSensor;
 
 			std::string type;
 		};

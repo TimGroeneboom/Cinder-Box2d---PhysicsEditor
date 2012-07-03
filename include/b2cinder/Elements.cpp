@@ -25,6 +25,12 @@ void Elements::setup(std::string file){
 				bodyFixture.friction		= fixture->getAttributeValue<float>( "friction" );
 				bodyFixture.restitution		= fixture->getAttributeValue<float>( "restitution" );
 				bodyFixture.type			= fixture->getAttributeValue<std::string>( "type" );
+				std::string isSensor		= fixture->getAttributeValue<std::string>( "isSensor" );
+
+				if( isSensor!="false" )
+					bodyFixture.isSensor = true;
+				else
+					bodyFixture.isSensor = false;
 
 				for( XmlTree::Iter polygon = fixture->begin("polygon"); polygon != fixture->end(); ++polygon){
 					Polygon fixturePolygon;
