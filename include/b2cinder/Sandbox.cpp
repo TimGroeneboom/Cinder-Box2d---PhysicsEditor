@@ -38,6 +38,16 @@ namespace cinder
 
 		void Sandbox::update()
 		{	
+			b2Body* bodies = mWorld->GetBodyList();
+			while( bodies != NULL )
+			{
+				PhysicsElement* p = (PhysicsElement*)bodies->GetUserData();
+				if( p != NULL)
+					p->update();
+
+				bodies = bodies->GetNext();
+			}
+
 			mWorld->Step(mTimeStep, mVelocityIterations, mPositionIterations);
 			mWorld->ClearForces();
 		}

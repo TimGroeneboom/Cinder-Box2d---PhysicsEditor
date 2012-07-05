@@ -26,5 +26,10 @@ namespace cinder
 			mStopAngularVelocity = false;
 		}
 
+		void PhysicsElement::setGravityScale( float scale ){
+			if( mBody ){
+				mBody->SetGravityScale( scale );
+			}
+		}
 	}
 }

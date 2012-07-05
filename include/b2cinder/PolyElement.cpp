@@ -9,6 +9,9 @@ using namespace box2d;
 PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body ) 
 	: PhysicsElement( world )
 {
+	mWidth = 0.0f;
+	mHeight = 0.0f;
+
 	mBodyDef.position.Set(	Conversions::toPhysics( pos.x ), Conversions::toPhysics( pos.y ) );		
 	mFixtureDef.shape = &mShape;
 	mFixtureDef.friction = 0.3f;
@@ -75,6 +78,9 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 	std::string filePath = body.name + ".png";
 	try{
 		mTexture = gl::Texture( loadImage( filePath ) );
+
+		mWidth = mTexture.getWidth() * 0.5f ;
+		mHeight = mTexture.getHeight() * 0.5f ;
 	}catch(const std::exception & e){
 		app::console() << "Error loading : " << filePath << std::endl;
 		app::console() << e.what() << std::endl;
@@ -101,6 +107,18 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 		delete vertexes_collection[i];	
 }
 
+float PolyElement::getWidth(){
+	return mWidth;
+}
+
+float PolyElement::getHeight(){
+	return mHeight;
+}
+
+Vec2f PolyElement::getSize(){
+	return Vec2f( mWidth, mHeight );
+}
+
 void PolyElement::draw()
 {
 	Vec2f pos = Conversions::toScreen( mBody->GetPosition() );
@@ -109,11 +127,11 @@ void PolyElement::draw()
 	if( mTexture ) {
 		glPushMatrix();
 
-		gl::color( Color::white() );
+		gl::color( ColorA::white() );
 
 		gl::translate( pos );
 		gl::rotate( t );
-		gl::translate( (float)(-mTexture.getWidth()*0.5f), (float)(-mTexture.getHeight()*0.5f) );
+		gl::translate( (float)-mTexture.getWidth()*0.5f, (float)-mTexture.getHeight()*0.5f );
 
 		gl::draw( mTexture );
 

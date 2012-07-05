@@ -19,9 +19,16 @@ namespace cinder{
 		PolyElement( b2World * world, ci::Vec2f pos, Elements::Body body );
 
 		virtual void draw();
+
+		float getWidth();
+		float getHeight();
+		ci::Vec2f getSize();
 	protected:
 		b2PolygonShape	mShape;
 		ci::gl::Texture mTexture;
+
+		float mWidth;
+		float mHeight;
 	};
 }
 

@@ -40,6 +40,8 @@ namespace cinder {
 			// render the body on screen
 			virtual void draw(){}
 
+			void setGravityScale( float scale );
+
 			//
 			Vec2f getScreenPos(){ return Conversions::toScreen( mBody->GetPosition() ); }
 			float getAngleDegrees(){ return Conversions::radiansToDegrees( mBody->GetAngle() ); }
