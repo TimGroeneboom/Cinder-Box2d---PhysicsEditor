@@ -15,8 +15,8 @@ namespace cinder{
 
 	class PolyElement : public ci::box2d::PhysicsElement{
 	public:
-		virtual ~PolyElement(){}
 		PolyElement( b2World * world, ci::Vec2f pos, Elements::Body body );
+		virtual ~PolyElement();
 
 		virtual void draw();
 
@@ -27,8 +27,10 @@ namespace cinder{
 		b2PolygonShape	mShape;
 		ci::gl::Texture mTexture;
 
-		float mWidth;
-		float mHeight;
+		float			mWidth;
+		float			mHeight;
+
+		std::string		mName;
 	};
 }
 

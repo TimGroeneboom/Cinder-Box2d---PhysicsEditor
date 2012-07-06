@@ -14,16 +14,17 @@ namespace cinder
 	namespace box2d 
 	{
 		PhysicsElement::~PhysicsElement(){
-			mWorldPtr->DestroyBody(mBody);
-			mBody = NULL;
+			if( mWorldPtr && mBody ){
+				mWorldPtr->DestroyBody(mBody);
+				mBody = NULL;
+			}
 		}
 
 		PhysicsElement::PhysicsElement(b2World * world)
 		{
 			mWorldPtr = world;
 			mBody = NULL;
-			mStopVelocity = false;
-			mStopAngularVelocity = false;
+
 		}
 
 		void PhysicsElement::setGravityScale( float scale ){

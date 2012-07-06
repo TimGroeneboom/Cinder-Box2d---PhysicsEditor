@@ -6,11 +6,16 @@
 using namespace ci;
 using namespace box2d;
 
+PolyElement::~PolyElement(){
+
+}
+
 PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body ) 
 	: PhysicsElement( world )
 {
 	mWidth = 0.0f;
 	mHeight = 0.0f;
+	mName = body.name;
 
 	mBodyDef.position.Set(	Conversions::toPhysics( pos.x ), Conversions::toPhysics( pos.y ) );		
 	mFixtureDef.shape = &mShape;

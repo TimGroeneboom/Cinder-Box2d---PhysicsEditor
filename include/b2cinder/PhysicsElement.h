@@ -45,16 +45,6 @@ namespace cinder {
 			//
 			Vec2f getScreenPos(){ return Conversions::toScreen( mBody->GetPosition() ); }
 			float getAngleDegrees(){ return Conversions::radiansToDegrees( mBody->GetAngle() ); }
-			
-			// add special attributes
-			inline bool getStopVelocity(){ return mStopVelocity; };
-			inline void setStopVelocity(bool val = false){ mBody->SetLinearVelocity( b2Vec2(0,0) ); mStopVelocity = val; };
-
-			inline bool getStopAngularVelocity(){ return mStopAngularVelocity; };
-			inline void setStopAngularVelocity(bool val = false){ mBody->SetAngularVelocity( 0.0f ); mStopAngularVelocity = val; };
-
-			inline bool getStopXVelocity(){ return mStopXVelocity; };
-			inline void setStopXVelocity(bool val = false){ mBody->SetLinearVelocity( b2Vec2(0,mBody->GetLinearVelocity().y) ); mStopXVelocity = val; };
 		private:
 			
 			
@@ -70,11 +60,6 @@ namespace cinder {
 
 			//
 			b2World* mWorldPtr;
-
-			// these values indicate if the velocity has been changed artificially for player movement
-			bool mStopVelocity;
-			bool mStopAngularVelocity;
-			bool mStopXVelocity;
 		};
 	}
 }
