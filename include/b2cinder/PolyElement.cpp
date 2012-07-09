@@ -82,7 +82,8 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 	// try to get the associated texture
 	std::string filePath = body.name + ".png";
 	try{
-		mTexture = gl::Texture( loadImage( filePath ) );
+		
+		mTexture = gl::Texture( loadImage( app::loadAsset( filePath ) ) );
 
 		mWidth = mTexture.getWidth() * 0.5f ;
 		mHeight = mTexture.getHeight() * 0.5f ;
