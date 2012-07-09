@@ -6,9 +6,9 @@ using namespace box2d;
 Elements::Elements(){}
 Elements::~Elements(){}
 
-void Elements::setup(std::string file){
+void Elements::setup( DataSourceRef file ){
 	try{
-		XmlTree doc( loadFile( file ) );
+		XmlTree doc( file );
 
 		auto bodies = doc.begin("bodydef/bodies");
 		for( XmlTree::Iter body = bodies->begin("body"); body != bodies->end(); ++body ){

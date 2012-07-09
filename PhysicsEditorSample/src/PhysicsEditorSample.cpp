@@ -36,7 +36,8 @@ void PhysicsEditorSample::setup()
 	mSandbox.init();
 
 	mElements = ElementsRef( new Elements() );
-	mElements->setup("elements.xml");
+
+	mElements->setup( loadAsset( "elements.xml" ) );
 
 	const ElementsList & elementsList = mElements->getElements();
 	for( auto elementsListItr = elementsList.begin(); elementsListItr != elementsList.end() ; ++elementsListItr ){

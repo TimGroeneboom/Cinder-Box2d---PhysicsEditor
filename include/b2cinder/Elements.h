@@ -43,7 +43,7 @@ namespace cinder{
 		Elements();
 		~Elements();
 
-		void setup(std::string file);
+		void setup( DataSourceRef file );
 
 		inline const Body& getElement(std::string id){ return mElements[id]; };
 		inline const std::map<std::string, Elements::Body> &getElements(){ return mElements; };
