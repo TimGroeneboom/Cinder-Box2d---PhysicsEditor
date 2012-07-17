@@ -23,7 +23,10 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 	mFixtureDef.restitution = 0.15f;
 	mFixtureDef.density = 1.0f;
 
-	mBodyDef.type = b2_dynamicBody;
+	if( body.isDynamic )
+		mBodyDef.type = b2_dynamicBody;
+	else
+		mBodyDef.type = b2_staticBody;
 
 	// keep around the pointers for deletion later on, doesn't get the nobel prize but works
 	std::vector<b2Shape*> shapes_collection;
@@ -54,7 +57,7 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 			b2Fixture.friction = fixture.friction;
 			b2Fixture.density = fixture.density;
 			b2Fixture.isSensor = fixture.isSensor;
-
+			
 			mFixtureDefs.push_back( b2Fixture );
 		}
 		for( size_t j = 0 ; j < fixture.circles.size() ; j++ ){

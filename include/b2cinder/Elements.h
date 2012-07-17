@@ -37,6 +37,7 @@ namespace cinder{
 		};
 		struct Body{
 			std::string name;
+			bool isDynamic;
 			std::vector<Fixture> fixtures;
 		};
 	public:

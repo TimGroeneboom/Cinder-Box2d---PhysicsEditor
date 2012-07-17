@@ -15,6 +15,10 @@ void Elements::setup( DataSourceRef file ){
 			Body element;
 			element.name = body->getAttributeValue<std::string>("name", "unknown");
 
+			element.isDynamic = false;
+			if( body->getAttributeValue<std::string>( "dynamic", "false" ) != "false" )
+				element.isDynamic = true;
+
 			std::vector<Fixture> bodyFixtures;
 			for( XmlTree::Iter fixture = body->begin("fixture") ; fixture != body->end(); ++fixture ){
 				Fixture bodyFixture;

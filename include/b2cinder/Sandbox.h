@@ -36,7 +36,7 @@ namespace cinder{
 			// have a look at what's in the physics system (scaled up to screen space)
 			void debugDraw( bool drawBodies=true, bool drawContacts=true, bool drawJoints=true );
 			// draw all PhysicsElements
-			void draw();
+			virtual void draw();
 			
 			// initialize the box2d world, optionally create boundaries at edges of screen
 			void init( bool useScreenBounds=true );
