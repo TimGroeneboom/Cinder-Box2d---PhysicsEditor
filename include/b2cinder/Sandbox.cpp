@@ -38,6 +38,9 @@ namespace cinder
 
 		void Sandbox::update()
 		{	
+			mWorld->Step(mTimeStep, mVelocityIterations, mPositionIterations);
+			mWorld->ClearForces();
+
 			b2Body* bodies = mWorld->GetBodyList();
 			while( bodies != NULL )
 			{
@@ -48,8 +51,6 @@ namespace cinder
 				bodies = bodies->GetNext();
 			}
 
-			mWorld->Step(mTimeStep, mVelocityIterations, mPositionIterations);
-			mWorld->ClearForces();
 		}
 
 		void Sandbox::setGravity( Vec2f gravity )

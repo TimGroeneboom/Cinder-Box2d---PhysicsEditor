@@ -15,6 +15,7 @@ namespace cinder
 	{
 		PhysicsElement::~PhysicsElement(){
 			if( mWorldPtr && mBody ){
+				mBody->SetUserData(NULL);
 				mWorldPtr->DestroyBody(mBody);
 				mBody = NULL;
 			}

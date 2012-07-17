@@ -13,6 +13,8 @@ PolyElement::~PolyElement(){
 PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body ) 
 	: PhysicsElement( world )
 {
+	mVisible = true;
+
 	mWidth = 0.0f;
 	mHeight = 0.0f;
 	mName = body.name;
@@ -85,7 +87,6 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 	// try to get the associated texture
 	std::string filePath = body.name + ".png";
 	try{
-		
 		mTexture = gl::Texture( loadImage( app::loadAsset( filePath ) ) );
 
 		mWidth = mTexture.getWidth() * 0.5f ;
@@ -97,6 +98,7 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 	
 	mBody = mWorldPtr->CreateBody( &mBodyDef );
 
+	
 	// add all fixture defs
 	std::list<b2FixtureDef>* defs = &mFixtureDefs;
 	for( std::list<b2FixtureDef>::iterator iter = defs->begin(); iter != defs->end(); ++iter )
@@ -105,7 +107,7 @@ PolyElement::PolyElement( b2World * world, Vec2f pos, Elements::Body body )
 	}
 
 	// make a circular reference between PhysicsElement and b2Body
-	mBody->SetUserData(this);
+	mBody->SetUserData((PhysicsElement*)this);
 
 	// delete any shapes 
 	for( size_t i = 0 ; i < shapes_collection.size(); i++ )
@@ -130,21 +132,24 @@ Vec2f PolyElement::getSize(){
 
 void PolyElement::draw()
 {
-	Vec2f pos = Conversions::toScreen( mBody->GetPosition() );
-	float t = Conversions::radiansToDegrees( mBody->GetAngle() );
+	if( mVisible ){
+		Vec2f pos = Conversions::toScreen( mBody->GetPosition() );
+		float t = Conversions::radiansToDegrees( mBody->GetAngle() );
 
-	if( mTexture ) {
-		glPushMatrix();
+		if( mTexture ) {
+			glPushMatrix();
 
-		gl::color( ColorA::white() );
+			gl::color( ColorA::white() );
 
-		gl::translate( pos );
-		gl::rotate( t );
-		gl::translate( (float)-mTexture.getWidth()*0.5f, (float)-mTexture.getHeight()*0.5f );
+			gl::translate( pos );
+			gl::rotate( t );
+			gl::translate( (float)-mTexture.getWidth()*0.5f, (float)-mTexture.getHeight()*0.5f );
 
-		gl::draw( mTexture );
+			gl::draw( mTexture );
 
-		glPopMatrix();
+			glPopMatrix();
+		}
 	}
+
 }
 

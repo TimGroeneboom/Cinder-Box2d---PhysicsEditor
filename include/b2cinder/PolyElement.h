@@ -23,6 +23,9 @@ namespace cinder{
 		float getWidth();
 		float getHeight();
 		ci::Vec2f getSize();
+
+		inline void setVisible( bool visible = true ){ mVisible = visible;};
+		inline bool getVisible(){ return mVisible; };
 	protected:
 		b2PolygonShape	mShape;
 		ci::gl::Texture mTexture;
@@ -31,6 +34,8 @@ namespace cinder{
 		float			mHeight;
 
 		std::string		mName;
+
+		bool			mVisible;
 	};
 }
 
